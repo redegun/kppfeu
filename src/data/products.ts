@@ -26,7 +26,7 @@ export const products: Product[] = [
     color: "White & Black vehicles",
     selfHealing: "Without heat — natural sunlight is enough",
     price: 890,
-    img: "/images/film-packing-round.png",
+    img: "/images/kppf-24.png",
     shortDesc: "The original KPPF film. Self-healing without heat, anti-yellowing, deep gloss. Created by masters, for masters.",
     desc: "KPPF 24 is a glossy polyurethane paint protection film with 190μm coating thickness. The top layer features self-healing properties that repair minor scratches without heat treatment. Enhanced resistance to road chemicals prevents yellowing, while high elasticity simplifies working with complex body shapes. Thanks to exceptional transparency, the car's color becomes deeper and gains a premium gloss — no additional wax or ceramic coatings needed.",
     features: [
@@ -60,7 +60,7 @@ export const products: Product[] = [
     color: "Universal — any color",
     selfHealing: "Without heat — self-restoring top layer",
     price: 950,
-    img: "/images/film-packing-round.png",
+    img: "/images/kppf-84.png",
     shortDesc: "Satin finish with a rich wet look. Self-healing without heat, universal for all colors. The bold satin statement.",
     desc: "KPPF 84 is a professional polyurethane film with 190μm thickness and a distinctive satin effect finish. It combines a matte surface with a subtle, rich satin sheen — the 'wet satin' look. Self-healing without heat, scratch-resistant during installation, elastic and forgiving. Ideal for those who want something between gloss and matte.",
     features: [
@@ -94,7 +94,7 @@ export const products: Product[] = [
     color: "White vehicles / Over vinyl",
     selfHealing: "With heat application",
     price: 790,
-    img: "/images/film-packing-round.png",
+    img: "/images/kppf-96.png",
     shortDesc: "Hard top coat, exceptional clarity. Perfect for white vehicles and second-layer application over vinyl wraps.",
     desc: "KPPF 96 is a professional polyurethane film with approximately 170μm thickness, featuring a hard top lacquer layer. The gloss finish provides a 'fresh lacquer' visual effect. Specifically designed for white and light-colored vehicles, it also excels as a second layer over vinyl wraps. The hard top means scratches require heat to heal — but the trade-off is exceptional surface hardness and clarity.",
     features: [
@@ -128,7 +128,7 @@ export const products: Product[] = [
     color: "Universal — any color",
     selfHealing: "Without heat — self-restoring top layer",
     price: 1090,
-    img: "/images/film-packing-round.png",
+    img: "/images/kppf-99.png",
     shortDesc: "Maximum 240μm thickness for ultimate protection. Self-healing without heat, universal for all colors. The thickest KPPF.",
     desc: "KPPF 99 is the ultimate protection film with 240μm thickness — the thickest in the KPPF lineup. Despite its thickness, it remains elastic and comfortable to install with a grippy adhesive. Glossy finish, self-healing without heat, universal for any vehicle color. When maximum protection matters.",
     features: [
