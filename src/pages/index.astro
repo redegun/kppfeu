@@ -10,11 +10,8 @@ const features = [
   { icon: "🚫", title: "Anti-Yellowing", desc: "Advanced UV-resistant coating prevents yellowing over time" },
 ];
 
-const products = [
-  { slug: "kppf-24", name: "KPPF #24", tag: "Premium", thickness: "190μm", price: "€890", desc: "Universal flagship film with self-healing and deep gloss enhancement", img: "/images/film-packing-round.png" },
-  { slug: "kppf-25", name: "KPPF #25", tag: "Enhanced", thickness: "200μm", price: "€990", desc: "Maximum protection for dark vehicles and high-impact areas", img: "/images/film-packing-round.png" },
-  { slug: "kppf-10", name: "KPPF #10", tag: "Value", thickness: "160μm", price: "€690", desc: "Professional protection at an accessible price point", img: "/images/film-packing-round.png" },
-];
+import { products } from "../data/products";
+
 ---
 
 <BaseLayout title="KPPF.EU - Premium Paint Protection Film for Europe" description="Professional-grade polyurethane paint protection film with self-healing technology. Protect your vehicle with KPPF — designed for European roads.">
@@ -119,10 +116,10 @@ const products = [
             <div class="p-6">
               <div class="flex justify-between items-start mb-3">
                 <h3 class="text-xl font-bold text-kppf-gray font-head">{p.name}</h3>
-                <span class="text-kppf-green font-bold text-lg">{p.price}</span>
+                <span class="text-kppf-green font-bold text-lg">€{p.price}</span>
               </div>
-              <p class="text-kppf-gray-400 text-sm mb-2">{p.thickness} · 15m × 1.52m roll</p>
-              <p class="text-kppf-gray-300 text-sm mb-6 leading-relaxed">{p.desc}</p>
+              <p class="text-kppf-gray-400 text-sm mb-2">{p.thickness} · {p.finish} · {p.size}</p>
+              <p class="text-kppf-gray-300 text-sm mb-6 leading-relaxed">{p.shortDesc}</p>
               <a href={`/products/${p.slug}`} class="block bg-kppf-green hover:bg-kppf-green-500 text-kppf-black text-center py-3 rounded-xl font-semibold transition-all">
                 View Details
               </a>
