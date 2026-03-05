@@ -1,8 +1,31 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const team = [
+  {
+    name: "Nikolai",
+    role: "Head of Sales & Partnerships",
+    photo: "/images/nikolai.webp",
+    bio: "With over a decade in the automotive aftermarket industry, Nikolai leads all B2B relationships and distributor agreements across Europe. His deep understanding of the detailing market ensures KPPF reaches the studios that need it most. Whether you're a one-man shop or a multi-location chain, Nikolai is your first point of contact for wholesale pricing, partnership terms, and market entry support.",
+    whatsapp: "https://wa.me/46701234567",
+    telegram: "https://t.me/kppf_nikolai",
+    facebook: "https://facebook.com/kppf.eu",
+    email: "nikolai@kppf.eu",
+  },
+  {
+    name: "Gleb",
+    role: "Technical Director & Product Specialist",
+    photo: "/images/gleb.webp",
+    bio: "Gleb brings a rare combination: film engineering knowledge and real hands-on detailing experience. He handles all technical questions — from film behavior at sub-zero temperatures to optimal installation techniques for complex body panels. If you're considering KPPF for your studio, Gleb can walk you through product specs, run comparison tests, and provide installation training for your team.",
+    whatsapp: "https://wa.me/46709876543",
+    telegram: "https://t.me/kppf_gleb",
+    facebook: "https://facebook.com/kppf.eu",
+    email: "gleb@kppf.eu",
+  },
+];
 ---
 
-<BaseLayout title="About Us - KPPF.EU" description="Learn about KPPF - premium paint protection film manufacturer serving the European market.">
+<BaseLayout title="About Us - KPPF.EU" description="Learn about KPPF - premium paint protection film manufacturer serving the European market. Meet our team.">
   <section class="py-20 bg-kppf-black">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
@@ -14,22 +37,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         <div>
           <h2 class="text-2xl font-bold font-head mb-6 text-kppf-green">Our Story</h2>
           <div class="space-y-4 text-kppf-gray-300 leading-relaxed">
-            <p>KPPF was born from a simple idea: detailing professionals deserve materials that match their skill level. Too many films on the market compromise on quality, forcing masters to work around material limitations.</p>
-            <p>We partnered with leading polyurethane film manufacturers to develop a product line that meets the highest standards — self-healing without heat, chemical resistance, anti-yellowing technology, and a deep gloss finish.</p>
-            <p>Now, we're bringing this commitment to quality to the European market, with our headquarters in Stockholm, Sweden.</p>
+            <p>KPPF was born from a simple frustration: detailing professionals were stuck choosing between films that were easy to install but yellowed fast, or films that looked great but fought you every step of the installation.</p>
+            <p>We partnered directly with advanced polyurethane film manufacturers to engineer a product line that refuses to compromise — self-healing without heat, zero yellowing after years of exposure, 500%+ elongation for the most complex body panels, and a deep gloss that makes ceramic coatings unnecessary.</p>
+            <p>After proving the product across thousands of installations in demanding climates, we opened our European headquarters in Stockholm, Sweden — bringing factory-direct quality and pricing to detailing studios across the continent.</p>
           </div>
         </div>
-        <div class="bg-gradient-to-br from-kppf-gray-700 to-kppf-gray-800 rounded-2xl h-80 flex items-center justify-center border border-kppf-gray-700/50">
-          <span class="text-kppf-gray-500">Company Photo</span>
+        <div class="relative rounded-2xl overflow-hidden border border-kppf-gray-700/50">
+          <img src="/images/hero-european-road.webp" alt="KPPF protected vehicle on European roads" class="w-full h-80 object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-kppf-black/50 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <span class="text-kppf-green text-sm font-semibold">Engineered for European conditions</span>
+          </div>
         </div>
       </div>
 
       <!-- Values -->
       <div class="grid md:grid-cols-3 gap-6 mb-20">
         {[
-          { icon: "🏆", title: "Quality First", desc: "Every roll undergoes rigorous quality control. We never compromise on materials or manufacturing standards." },
-          { icon: "🤝", title: "Professional Partnership", desc: "We work directly with detailing studios, providing training, support, and materials for exceptional results." },
-          { icon: "🌍", title: "European Commitment", desc: "Local presence, fast delivery, and dedicated support. We're here to serve the growing PPF market across Europe." },
+          { icon: "🏆", title: "Quality First", desc: "Every roll undergoes rigorous quality control. We never compromise on materials or manufacturing standards. Our rejection rate speaks louder than marketing claims." },
+          { icon: "🤝", title: "Professional Partnership", desc: "We work directly with detailing studios — no middlemen, no inflated pricing. Training, technical support, and premium materials, all from one source." },
+          { icon: "🌍", title: "European Commitment", desc: "Stockholm headquarters, fast delivery across the EU, and dedicated support in your timezone. We're building long-term relationships, not just shipping rolls." },
         ].map((v) => (
           <div class="bg-kppf-gray-800 rounded-2xl p-8 border border-kppf-gray-700/50 hover:border-kppf-green/30 transition-all text-center">
             <div class="text-4xl mb-4">{v.icon}</div>
@@ -39,22 +66,66 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         ))}
       </div>
 
-      <!-- Why KPPF -->
-      <div class="grid md:grid-cols-2 gap-6 mb-20">
-        {[
-          { title: "Self-Healing Technology", desc: "Minor scratches disappear naturally without heat treatment — just sunlight or warm water." },
-          { title: "Up to 7 Years Durability", desc: "Long-lasting protection that maintains clarity and performance year after year." },
-          { title: "Anti-Yellowing Formula", desc: "Advanced UV-resistant coating prevents yellowing, keeping your vehicle looking fresh." },
-          { title: "Easy Installation", desc: "Highly elastic film that forgives positioning errors and stretches to conform to any body shape." },
-        ].map((f) => (
-          <div class="flex items-start gap-4 p-6 bg-kppf-gray-800/50 rounded-xl border border-kppf-gray-700/30">
-            <div class="text-kppf-green text-xl flex-shrink-0 mt-0.5">✓</div>
-            <div>
-              <h3 class="font-semibold mb-1">{f.title}</h3>
-              <p class="text-kppf-gray-400 text-sm">{f.desc}</p>
+      <!-- Team -->
+      <div class="mb-20">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold font-head text-kppf-gray">Meet the <span class="text-kppf-green">Team</span></h2>
+          <p class="text-kppf-gray-400 mt-3">The people behind KPPF Europe — reach out directly</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          {team.map((person) => (
+            <div class="bg-kppf-gray-800 rounded-2xl border border-kppf-gray-700/50 overflow-hidden hover:border-kppf-green/30 transition-all">
+              <div class="flex flex-col sm:flex-row">
+                <div class="sm:w-48 shrink-0">
+                  <img src={person.photo} alt={person.name} class="w-full h-56 sm:h-full object-cover" />
+                </div>
+                <div class="p-6 flex-1">
+                  <h3 class="text-xl font-bold text-kppf-gray font-head">{person.name}</h3>
+                  <p class="text-kppf-green text-sm font-medium mb-3">{person.role}</p>
+                  <p class="text-kppf-gray-400 text-sm leading-relaxed mb-4">{person.bio}</p>
+                  <div class="flex flex-wrap gap-2">
+                    <a href={person.whatsapp} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] text-xs font-medium px-3 py-1.5 rounded-full hover:bg-[#25D366]/20 transition-colors">
+                      WhatsApp
+                    </a>
+                    <a href={person.telegram} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-[#26A5E4]/10 border border-[#26A5E4]/30 text-[#26A5E4] text-xs font-medium px-3 py-1.5 rounded-full hover:bg-[#26A5E4]/20 transition-colors">
+                      Telegram
+                    </a>
+                    <a href={person.facebook} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-[#1877F2]/10 border border-[#1877F2]/30 text-[#1877F2] text-xs font-medium px-3 py-1.5 rounded-full hover:bg-[#1877F2]/20 transition-colors">
+                      Facebook
+                    </a>
+                    <a href={`mailto:${person.email}`} class="inline-flex items-center gap-1.5 bg-kppf-green/10 border border-kppf-green/30 text-kppf-green text-xs font-medium px-3 py-1.5 rounded-full hover:bg-kppf-green/20 transition-colors">
+                      Email
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      <!-- Why KPPF -->
+      <div class="mb-20">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold font-head text-kppf-gray">Why <span class="text-kppf-green">KPPF</span></h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          {[
+            { title: "Self-Healing Technology", desc: "Minor scratches disappear naturally without heat treatment — just sunlight or warm water. Your clients see magic. You save 15–30 minutes per car." },
+            { title: "Up to 7 Years Durability", desc: "Long-lasting protection that maintains clarity and performance year after year. One installation, years of customer satisfaction." },
+            { title: "Anti-Yellowing Formula", desc: "Advanced UV-resistant coating prevents yellowing — verified over 7 years of real-world testing. White cars stay white." },
+            { title: "500%+ Elongation", desc: "Highly elastic film that forgives positioning errors and stretches to conform to bumpers, mirrors, and aggressive body lines in a single piece." },
+          ].map((f) => (
+            <div class="flex items-start gap-4 p-6 bg-kppf-gray-800/50 rounded-xl border border-kppf-gray-700/30">
+              <div class="text-kppf-green text-xl flex-shrink-0 mt-0.5">✓</div>
+              <div>
+                <h3 class="font-semibold mb-1">{f.title}</h3>
+                <p class="text-kppf-gray-400 text-sm">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
