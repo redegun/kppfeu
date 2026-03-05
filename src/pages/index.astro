@@ -41,16 +41,7 @@ import { products } from "../data/products";
           Professional-grade polyurethane film with self-healing technology. Created by masters, for masters.
         </p>
         
-        <!-- Promo Banner -->
-        <div id="hero-promo" class="mb-10 max-w-xl" style="opacity:0;transform:translateY(20px)">
-          <div class="bg-kppf-green text-kppf-black rounded-xl px-6 py-3 flex items-center gap-4 shadow-lg shadow-kppf-green/20">
-            <span class="text-3xl font-head font-bold shrink-0">10%</span>
-            <div class="border-l-2 border-kppf-black/20 pl-4">
-              <span class="font-bold text-sm block">OFF YOUR FIRST ORDER</span>
-              <span class="text-kppf-black/70 text-xs">New European partners only · No code needed · Full rolls</span>
-            </div>
-          </div>
-        </div>
+        <div id="hero-promo" class="mb-10" style="opacity:0;transform:translateY(20px)"></div>
         
         <div id="hero-buttons" class="flex flex-col sm:flex-row gap-4" style="opacity:0;transform:translateY(20px)">
           <a href="/products" class="bg-kppf-green hover:bg-kppf-green-500 text-kppf-black px-8 py-4 rounded-xl text-lg font-semibold transition-all inline-flex items-center justify-center gap-2">
@@ -64,6 +55,37 @@ import { products } from "../data/products";
       </div>
     </div>
   </section>
+
+  <!-- Promo Marquee -->
+  <div class="bg-kppf-green overflow-hidden py-3">
+    <div class="promo-marquee">
+      <div class="promo-scroll">
+        {Array(12).fill(null).map(() => (
+          <span class="inline-flex items-center gap-3 text-kppf-black font-bold text-sm tracking-wide whitespace-nowrap px-6">
+            <span class="text-lg">★</span> 10% OFF YOUR FIRST ORDER
+          </span>
+        ))}
+        {Array(12).fill(null).map(() => (
+          <span class="inline-flex items-center gap-3 text-kppf-black font-bold text-sm tracking-wide whitespace-nowrap px-6">
+            <span class="text-lg">★</span> 10% OFF YOUR FIRST ORDER
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .promo-marquee { overflow: hidden; }
+    .promo-scroll {
+      display: flex;
+      width: max-content;
+      animation: promo-slide 30s linear infinite;
+    }
+    @keyframes promo-slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
 
   <!-- Stats -->
   <section class="bg-kppf-gray-800 border-y border-kppf-gray-700/30">
