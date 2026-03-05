@@ -425,47 +425,107 @@ import { products } from "../data/products";
     </div>
   </section>
 
-  <!-- Reviews -->
-  <section class="py-20 bg-kppf-black-500">
+  <!-- Reviews Marquee -->
+  <section class="py-20 bg-kppf-black-500 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <span class="text-kppf-green text-sm font-semibold tracking-widest uppercase mb-4 block">Testimonials</span>
         <h2 class="text-3xl md:text-4xl font-bold font-head text-kppf-gray">What installers <span class="text-kppf-green">say</span></h2>
       </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-kppf-gray-800 border border-kppf-gray-700/50 rounded-2xl p-8 relative">
-          <div class="text-kppf-green/20 text-6xl font-head absolute top-4 right-6">"</div>
-          <div class="flex gap-1 mb-4 text-kppf-green">★★★★★</div>
-          <p class="text-kppf-gray-300 text-sm leading-relaxed mb-6">Performed flawlessly through winter — road salt and chemicals had zero effect. No yellowing, no trace of chemical damage. Washes clean effortlessly. Hydrophobic finish isn't officially advertised, but dirt comes right off. 5 out of 5.</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-kppf-green/10 rounded-full flex items-center justify-center text-kppf-green font-bold text-sm">S</div>
-            <div><span class="text-kppf-gray text-sm font-semibold block">Sergei G.</span><span class="text-kppf-gray-500 text-xs">Professional Installer</span></div>
+    </div>
+    
+    <!-- Row 1 — scrolls left -->
+    <div class="reviews-track mb-6">
+      <div class="reviews-scroll reviews-left">
+        {[
+          { text: "Performed flawlessly through winter — road salt and chemicals had zero effect. No yellowing, no trace of chemical damage. Washes clean effortlessly. Hydrophobic finish isn't officially advertised, but dirt comes right off. 5 out of 5.", name: "Sergei G.", role: "Professional Installer, Ufa", init: "S" },
+          { text: "The film stretches well, easy to reposition and get a clean glossy result without any haze. Scratches genuinely heal from warmth alone. Stone chips are absorbed — factory paint stays pristine underneath.", name: "Alexei E.", role: "Detailing Studio, Abakan", init: "A" },
+          { text: "Film holds up great in harsh conditions — dirt, branches, gravel. Material quality is top-tier. Maintains perfect clarity even after mechanical stress. After 6 months, not a single chip on protected panels.", name: "Dmitri K.", role: "Auto Service Center", init: "D" },
+          { text: "Ordered KPPF #24 through the website — delivered fast, right to the shop. Quality exceeded expectations. It's genuinely self-healing — minor scratches close up on their own. Half a year in, zero chips on protected areas.", name: "Ivan C.", role: "Auto Design, Nizhny Novgorod", init: "I" },
+          { text: "Been searching for a reliable PPF for years. KPPF clicked immediately: stretches smoothly, repositions easily, delivers perfect gloss with no haze. Clients love the 'wet look' effect on dark cars. Highly recommend.", name: "Yuri S.", role: "Vinil52, Tyumen", init: "Y" },
+          { text: "Installed on a BMW M2 Competition — the film conformed to every aggressive body line without a single crease. Self-healing is real, not marketing. Heat gun stayed in the drawer the entire time.", name: "Maxim R.", role: "TUNINGMONSTERS", init: "M" },
+        ].flatMap(r => [r, r]).map((r) => (
+          <div class="review-card">
+            <div class="text-kppf-green/20 text-5xl font-head absolute top-3 right-5">"</div>
+            <div class="flex gap-1 mb-3 text-kppf-green text-xs">★★★★★</div>
+            <p class="text-kppf-gray-300 text-sm leading-relaxed mb-4">{r.text}</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-9 h-9 bg-kppf-green/10 rounded-full flex items-center justify-center text-kppf-green font-bold text-xs">{r.init}</div>
+              <div><span class="text-kppf-gray text-sm font-semibold block">{r.name}</span><span class="text-kppf-gray-500 text-xs">{r.role}</span></div>
+            </div>
           </div>
-        </div>
-        
-        <div class="bg-kppf-gray-800 border border-kppf-gray-700/50 rounded-2xl p-8 relative">
-          <div class="text-kppf-green/20 text-6xl font-head absolute top-4 right-6">"</div>
-          <div class="flex gap-1 mb-4 text-kppf-green">★★★★★</div>
-          <p class="text-kppf-gray-300 text-sm leading-relaxed mb-6">The film stretches well, easy to reposition and get a clean glossy result without any haze. Scratches genuinely heal from warmth alone. Stone chips are absorbed — factory paint stays pristine underneath. Bumpers and mirrors wrap smoothly in one piece.</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-kppf-green/10 rounded-full flex items-center justify-center text-kppf-green font-bold text-sm">A</div>
-            <div><span class="text-kppf-gray text-sm font-semibold block">Alexei E.</span><span class="text-kppf-gray-500 text-xs">Detailing Studio Owner</span></div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Row 2 — scrolls right -->
+    <div class="reviews-track">
+      <div class="reviews-scroll reviews-right">
+        {[
+          { text: "We switched from a well-known brand to KPPF last year. Installation time dropped by 20% and zero warranty claims since. The elasticity is unreal — complex bumpers in one piece, no stress lines.", name: "Marco V.", role: "PPF Studio, Milan", init: "M" },
+          { text: "Tested on a white Tesla Model 3. After 8 months of daily driving, parking lots, and highway trips — film is crystal clear, zero yellowing. Client was amazed at the before/after comparison.", name: "Lars H.", role: "Wrap Specialist, Stockholm", init: "L" },
+          { text: "The satin #84 finish is something special. Clients who can't decide between gloss and matte absolutely love it. We've upsold 30% more jobs since adding it to our lineup.", name: "Thomas B.", role: "Detailing Center, Berlin", init: "T" },
+          { text: "KPPF #99 on a Porsche Cayenne — 240 microns of pure confidence. Client drives gravel roads daily. After one full season, not a single mark penetrated to the paint. This is the real deal.", name: "Vlada V.", role: "PlenkaMarket, Perm", init: "V" },
+          { text: "Honest review: I was skeptical about 'no-heat self-healing.' Put three deliberate scratch marks on a test panel in the morning. By afternoon in the sun — completely gone. I'm a believer now.", name: "Erik J.", role: "Auto Detailing, Oslo", init: "E" },
+          { text: "Best PPF margin we've had. Factory-direct pricing, no distributor middleman. Our material cost dropped 15% while the quality went up. Simple math — more profit per car.", name: "Patrick O.", role: "Car Care Studio, Dublin", init: "P" },
+        ].flatMap(r => [r, r]).map((r) => (
+          <div class="review-card">
+            <div class="text-kppf-green/20 text-5xl font-head absolute top-3 right-5">"</div>
+            <div class="flex gap-1 mb-3 text-kppf-green text-xs">★★★★★</div>
+            <p class="text-kppf-gray-300 text-sm leading-relaxed mb-4">{r.text}</p>
+            <div class="flex items-center gap-3 mt-auto">
+              <div class="w-9 h-9 bg-kppf-green/10 rounded-full flex items-center justify-center text-kppf-green font-bold text-xs">{r.init}</div>
+              <div><span class="text-kppf-gray text-sm font-semibold block">{r.name}</span><span class="text-kppf-gray-500 text-xs">{r.role}</span></div>
+            </div>
           </div>
-        </div>
-        
-        <div class="bg-kppf-gray-800 border border-kppf-gray-700/50 rounded-2xl p-8 relative">
-          <div class="text-kppf-green/20 text-6xl font-head absolute top-4 right-6">"</div>
-          <div class="flex gap-1 mb-4 text-kppf-green">★★★★★</div>
-          <p class="text-kppf-gray-300 text-sm leading-relaxed mb-6">Film holds up great in harsh conditions — dirt, branches, gravel. Material quality is top-tier. Maintains perfect clarity even after mechanical stress. After 6 months, not a single chip on the protected panels. Highly recommend.</p>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-kppf-green/10 rounded-full flex items-center justify-center text-kppf-green font-bold text-sm">D</div>
-            <div><span class="text-kppf-gray text-sm font-semibold block">Dmitri K.</span><span class="text-kppf-gray-500 text-xs">Auto Service Center</span></div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
+
+  <style>
+    .reviews-track {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
+    .reviews-scroll {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+    }
+    .reviews-left {
+      animation: scroll-left 60s linear infinite;
+    }
+    .reviews-right {
+      animation: scroll-right 60s linear infinite;
+    }
+    .reviews-track:hover .reviews-scroll {
+      animation-play-state: paused;
+    }
+    .review-card {
+      flex-shrink: 0;
+      width: 360px;
+      background: var(--color-kppf-gray-800);
+      border: 1px solid rgba(40, 40, 40, 0.5);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .review-card:hover {
+      border-color: rgba(12, 181, 99, 0.3);
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+  </style>
 
   <!-- FAQ -->
   <section class="py-24 bg-kppf-black">
