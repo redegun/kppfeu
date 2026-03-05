@@ -148,21 +148,21 @@ if (!product) {
         
         <!-- Product Info -->
         <div class="order-1 lg:order-2">
-          <div class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-semibold inline-block mb-4">
+          <div class="bg-kppf-green text-kppf-gray px-3 py-1 rounded-full text-sm font-semibold inline-block mb-4">
             {product.category}
           </div>
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{product.name}</h1>
-          <p class="text-xl text-gray-300 mb-6">{product.description}</p>
+          <h1 class="text-4xl md:text-5xl font-bold text-kppf-gray mb-4">{product.name}</h1>
+          <p class="text-xl text-kppf-gray-300 mb-6">{product.description}</p>
           <div class="flex items-center mb-8">
-            <span class="text-3xl font-bold text-amber-400">€{product.price}</span>
-            <span class="text-gray-400 ml-2">per roll</span>
+            <span class="text-3xl font-bold text-kppf-green">€{product.price}</span>
+            <span class="text-kppf-gray-400 ml-2">per roll</span>
           </div>
           
           <!-- Add to Cart -->
           <div class="flex flex-col sm:flex-row gap-4">
             <div class="flex items-center gap-2">
-              <label for="quantity" class="text-gray-400">Quantity:</label>
-              <select id="quantity" class="bg-gray-700 text-white border border-gray-600 rounded px-3 py-2">
+              <label for="quantity" class="text-kppf-gray-400">Quantity:</label>
+              <select id="quantity" class="bg-kppf-gray-700 text-kppf-gray border border-kppf-gray-600 rounded px-3 py-2">
                 <option value="1">1 roll</option>
                 <option value="2">2 rolls</option>
                 <option value="3">3 rolls</option>
@@ -172,7 +172,7 @@ if (!product) {
             </div>
             <button 
               onclick={`addToCartWithQuantity('${product.id}', '${product.name}', ${product.price}, '${product.image}')`}
-              class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex-1 sm:flex-none"
+              class="bg-kppf-green hover:bg-kppf-green-500 text-kppf-gray px-8 py-3 rounded-lg font-semibold transition-colors flex-1 sm:flex-none"
             >
               Add to Cart
             </button>
@@ -183,11 +183,11 @@ if (!product) {
   </section>
 
   <!-- Product Details -->
-  <section class="py-20 bg-gray-800">
+  <section class="py-20 bg-kppf-gray-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Tabs -->
-      <div class="border-b border-gray-700 mb-12">
+      <div class="border-b border-kppf-gray-700 mb-12">
         <nav class="flex space-x-8">
           <button onclick="showTab('features')" id="tab-features" class="tab-button active py-4 px-1 border-b-2 font-medium text-sm">
             Features
@@ -206,21 +206,21 @@ if (!product) {
       <div id="content-features" class="tab-content">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <h3 class="text-2xl font-bold text-white mb-6">Key Features</h3>
+            <h3 class="text-2xl font-bold text-kppf-gray mb-6">Key Features</h3>
             <div class="space-y-4">
               {product.features.map(feature => (
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 mr-3 text-amber-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 mr-3 text-kppf-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span class="text-gray-300">{feature}</span>
+                  <span class="text-kppf-gray-300">{feature}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div class="bg-gray-700/50 p-8 rounded-xl">
-            <h4 class="text-xl font-bold text-white mb-4">Why Choose {product.name}?</h4>
-            <p class="text-gray-300 leading-relaxed">
+          <div class="bg-kppf-gray-700/50 p-8 rounded-xl">
+            <h4 class="text-xl font-bold text-kppf-gray mb-4">Why Choose {product.name}?</h4>
+            <p class="text-kppf-gray-300 leading-relaxed">
               {product.name} represents the perfect balance of performance, durability, and value. 
               Engineered specifically for the European market, this film undergoes rigorous testing 
               to ensure it performs in all weather conditions, from the harsh Nordic winters to 
@@ -234,21 +234,21 @@ if (!product) {
       <div id="content-specs" class="tab-content hidden">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
-            <h3 class="text-2xl font-bold text-white mb-6">Technical Specifications</h3>
-            <div class="bg-gray-700/50 rounded-xl overflow-hidden">
+            <h3 class="text-2xl font-bold text-kppf-gray mb-6">Technical Specifications</h3>
+            <div class="bg-kppf-gray-700/50 rounded-xl overflow-hidden">
               <table class="w-full">
                 {Object.entries(product.specs).map(([key, value]) => (
-                  <tr class="border-b border-gray-600 last:border-b-0">
-                    <td class="px-6 py-4 text-gray-400 font-medium">{key}</td>
-                    <td class="px-6 py-4 text-white">{value}</td>
+                  <tr class="border-b border-kppf-gray-600 last:border-b-0">
+                    <td class="px-6 py-4 text-kppf-gray-400 font-medium">{key}</td>
+                    <td class="px-6 py-4 text-kppf-gray">{value}</td>
                   </tr>
                 ))}
               </table>
             </div>
           </div>
           <div>
-            <h4 class="text-xl font-bold text-white mb-4">Installation Notes</h4>
-            <div class="space-y-4 text-gray-300">
+            <h4 class="text-xl font-bold text-kppf-gray mb-4">Installation Notes</h4>
+            <div class="space-y-4 text-kppf-gray-300">
               <p>• Surface temperature: 18-25°C for optimal installation</p>
               <p>• Humidity: 40-60% relative humidity recommended</p>
               <p>• Repositioning time: Up to 15 minutes after initial placement</p>
@@ -263,29 +263,29 @@ if (!product) {
       <div id="content-applications" class="tab-content hidden">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
-            <h3 class="text-2xl font-bold text-white mb-6">Ideal Applications</h3>
+            <h3 class="text-2xl font-bold text-kppf-gray mb-6">Ideal Applications</h3>
             <div class="space-y-4">
               {product.applications.map(application => (
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 mr-3 text-amber-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 mr-3 text-kppf-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                   </svg>
-                  <span class="text-gray-300">{application}</span>
+                  <span class="text-kppf-gray-300">{application}</span>
                 </div>
               ))}
             </div>
           </div>
           <div class="space-y-6">
-            <div class="bg-gray-700/50 p-6 rounded-xl">
-              <h4 class="text-lg font-bold text-white mb-3">Coverage Area</h4>
-              <p class="text-gray-300">
+            <div class="bg-kppf-gray-700/50 p-6 rounded-xl">
+              <h4 class="text-lg font-bold text-kppf-gray mb-3">Coverage Area</h4>
+              <p class="text-kppf-gray-300">
                 One roll covers approximately 22.8 m², sufficient for front bumper, 
                 hood, fenders, and mirror caps on most vehicles.
               </p>
             </div>
-            <div class="bg-gray-700/50 p-6 rounded-xl">
-              <h4 class="text-lg font-bold text-white mb-3">Professional Installation</h4>
-              <p class="text-gray-300">
+            <div class="bg-kppf-gray-700/50 p-6 rounded-xl">
+              <h4 class="text-lg font-bold text-kppf-gray mb-3">Professional Installation</h4>
+              <p class="text-kppf-gray-300">
                 We recommend professional installation for best results. Contact us for 
                 certified installer recommendations in your area.
               </p>
@@ -298,18 +298,18 @@ if (!product) {
   </section>
 
   <!-- Related Products -->
-  <section class="py-20 bg-gray-900">
+  <section class="py-20 bg-kppf-black">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h3 class="text-3xl font-bold text-white text-center mb-12">Other Products</h3>
+      <h3 class="text-3xl font-bold text-kppf-gray text-center mb-12">Other Products</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {Object.values(products).filter(p => p.id !== product.id).map(otherProduct => (
-          <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl overflow-hidden shadow-xl hover:shadow-amber-500/20 transition-all">
+          <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl overflow-hidden shadow-xl hover:shadow-kppf-green/20 transition-all">
             <div class={`h-48 bg-gradient-to-br ${otherProduct.gradient}`}></div>
             <div class="p-6">
-              <h4 class="text-xl font-bold text-white mb-2">{otherProduct.name}</h4>
-              <p class="text-amber-400 font-semibold mb-4">€{otherProduct.price} / roll</p>
-              <p class="text-gray-400 mb-4">{otherProduct.thickness} • {otherProduct.size}</p>
-              <a href={`/products/${otherProduct.id}`} class="block bg-amber-600 hover:bg-amber-700 text-white text-center py-2 rounded-lg font-semibold transition-colors">
+              <h4 class="text-xl font-bold text-kppf-gray mb-2">{otherProduct.name}</h4>
+              <p class="text-kppf-green font-semibold mb-4">€{otherProduct.price} / roll</p>
+              <p class="text-kppf-gray-400 mb-4">{otherProduct.thickness} • {otherProduct.size}</p>
+              <a href={`/products/${otherProduct.id}`} class="block bg-kppf-green hover:bg-kppf-green-500 text-kppf-gray text-center py-2 rounded-lg font-semibold transition-colors">
                 View Details
               </a>
             </div>
@@ -358,22 +358,28 @@ if (!product) {
       const button = event.target;
       const originalText = button.textContent;
       button.textContent = 'Added to Cart!';
-      button.classList.add('bg-green-600');
+      button.classList.add('bg-kppf-green');
       
       setTimeout(() => {
         button.textContent = originalText;
-        button.classList.remove('bg-green-600');
+        button.classList.remove('bg-kppf-green');
       }, 2000);
     }
   </script>
 
   <style>
-    @reference "tailwindcss";
     .tab-button {
-      @apply text-gray-400 border-transparent hover:text-amber-400 hover:border-amber-400;
+      color: #a1a1a1;
+      border-color: transparent;
+      transition: all 0.3s ease;
+    }
+    .tab-button:hover {
+      color: #0cb563;
+      border-color: #0cb563;
     }
     .tab-button.active {
-      @apply text-amber-400 border-amber-400;
+      color: #0cb563;
+      border-color: #0cb563;
     }
   </style>
 

@@ -1,1 +1,61 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+@theme {
+  /* KPPF Design System — from kppf.ru */
+  --color-kppf-black: #0f0c0f;
+  --color-kppf-black-500: #171617;
+  --color-kppf-gray-800: #1a1a1a;
+  --color-kppf-gray-700: #282828;
+  --color-kppf-gray-600: #373737;
+  --color-kppf-gray-500: #5b5b5b;
+  --color-kppf-gray-400: #a1a1a1;
+  --color-kppf-gray-300: #b1b1b1;
+  --color-kppf-gray-200: #d1d1d1;
+  --color-kppf-gray: #f2f2f2;
+  --color-kppf-white: #ffffff;
+  --color-kppf-green: #0cb563;
+  --color-kppf-green-500: #0f8e50;
+  --color-kppf-red: #d83131;
+
+  --font-sans: "Montserrat", Arial, sans-serif;
+  --font-head: "DelaGothicOne", Arial, sans-serif;
+}
+
+/* DelaGothicOne - load from Google Fonts for headings */
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+/* Base styles matching kppf.ru */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-kppf-black);
+  color: var(--color-kppf-gray);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .heading {
+  font-family: var(--font-head);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-kppf-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-kppf-gray-600);
+  border-radius: 4px;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-kppf-green);
+  color: var(--color-kppf-black);
+}
