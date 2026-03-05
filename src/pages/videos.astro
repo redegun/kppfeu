@@ -3,332 +3,160 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const videos = [
   {
-    id: 1,
-    title: "Installation Test on BMW M2",
-    description: "Professional installation of KPPF #24 on a BMW M2. Watch as our certified installer demonstrates proper technique and achieves perfect results.",
-    thumbnail: "from-blue-500 to-blue-700",
+    title: "KPPF #24 on BMW M2 Competition — АВТОБАЗА К34",
+    description: "Full installation test of KPPF #24 polyurethane film on a BMW M2 Competition. Watch the self-healing, elasticity, and finish quality in action.",
+    category: "Installation",
     duration: "12:34",
-    category: "Installation"
+    youtubeId: null,
   },
   {
-    id: 2,
-    title: "KPPF #25 on Mini Cooper JCW",
-    description: "Complete front-end protection using KPPF #25 on a Mini Cooper John Cooper Works. See the enhanced protection in action.",
-    thumbnail: "from-red-500 to-red-700",
+    title: "KPPF #25 & #10 on Aito M9 — POLYGRAPH DETAILING",
+    description: "Side-by-side installation test of two KPPF films on the Aito M9. Compare gloss, stretch, and healing performance.",
+    category: "Installation",
     duration: "8:45",
-    category: "Application"
+    youtubeId: null,
   },
   {
-    id: 3,
-    title: "Self-Healing Technology Demo",
-    description: "Incredible demonstration of our self-healing technology. Watch scratches disappear before your eyes with simple heat application.",
-    thumbnail: "from-green-500 to-green-700",
+    title: "KPPF #24 on Toyota Voxy — POLYGRAPH DETAILING",
+    description: "Professional PPF application on a Toyota Voxy demonstrating how KPPF handles complex panels and curves.",
+    category: "Installation",
+    duration: "10:15",
+    youtubeId: null,
+  },
+  {
+    title: "KPPF #25 on Geely Monjaro — RWI Studio",
+    description: "Real-world installation from RWI Studio. See how KPPF's 500%+ elongation handles the Monjaro's aggressive body lines.",
+    category: "Installation",
+    duration: "15:22",
+    youtubeId: null,
+  },
+  {
+    title: "KPPF #24 on Volkswagen Tiguan — TUNINGMONSTERS",
+    description: "Complete front-end protection on a VW Tiguan. TUNINGMONSTERS team showcases clean installation technique.",
+    category: "Installation",
+    duration: "9:38",
+    youtubeId: null,
+  },
+  {
+    title: "KPPF #25 on Mini Cooper JCW — Creative Team Print",
+    description: "Full wrap of a Mini Cooper JCW with KPPF #25. Compact body with tight curves — perfect test for film elasticity.",
+    category: "Installation",
+    duration: "11:50",
+    youtubeId: null,
+  },
+  {
+    title: "Self-Healing Technology — No Heat Required",
+    description: "Watch scratches disappear in real time under natural sunlight. No heat gun, no effort — KPPF's polyurethane memory does the work.",
+    category: "Technology",
     duration: "4:23",
-    category: "Technology"
+    youtubeId: null,
   },
   {
-    id: 4,
-    title: "European Winter Protection Test",
-    description: "Real-world testing in harsh European winter conditions. See how KPPF protects against road salt, ice, and extreme temperatures.",
-    thumbnail: "from-cyan-500 to-cyan-700",
-    duration: "15:12",
-    category: "Testing"
-  },
-  {
-    id: 5,
-    title: "Audi RS6 Full Wrap Process",
-    description: "Complete vehicle transformation using KPPF #24. Professional installation from start to finish on this high-performance Audi.",
-    thumbnail: "from-purple-500 to-purple-700",
+    title: "KPPF PPF School — Ivan Chebotarev's Masterclass",
+    description: "Professional training course by Ivan Chebotarev (VINIL52). Learn advanced PPF techniques and best practices with KPPF films.",
+    category: "Education",
     duration: "22:18",
-    category: "Installation"
+    youtubeId: null,
   },
-  {
-    id: 6,
-    title: "Chemical Resistance Laboratory Test",
-    description: "Scientific testing of KPPF films against various chemicals, acids, and environmental contaminants common in European roads.",
-    thumbnail: "from-orange-500 to-orange-700",
-    duration: "6:55",
-    category: "Testing"
-  },
-  {
-    id: 7,
-    title: "Paint Depth Enhancement Comparison",
-    description: "Before and after comparison showing how KPPF enhances paint depth and gloss. Visual demonstration of optical clarity benefits.",
-    thumbnail: "from-pink-500 to-pink-700",
-    duration: "5:41",
-    category: "Technology"
-  },
-  {
-    id: 8,
-    title: "Professional Installer Training",
-    description: "Behind-the-scenes look at our certified installer training program. Learn what makes a quality KPPF installation.",
-    thumbnail: "from-indigo-500 to-indigo-700",
-    duration: "18:29",
-    category: "Education"
-  }
 ];
 
-const categories = ["All", "Installation", "Technology", "Testing", "Application", "Education"];
+const categories = ["All", "Installation", "Technology", "Education"];
 ---
 
-<BaseLayout title="Videos - KPPF.EU Installation Guides & Demos" description="Watch professional paint protection film installation videos, self-healing demonstrations, and real-world testing. Learn about KPPF technology and applications.">
+<BaseLayout title="Videos - KPPF.EU Installation Guides & Demos" description="Watch professional PPF installation videos, self-healing demos, and training from certified KPPF installers across Europe.">
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-kppf-gray mb-6">
-        KPPF <span class="text-kppf-green">Videos</span>
-      </h1>
-      <p class="text-xl text-kppf-gray-300 mb-8 max-w-3xl mx-auto">
-        Watch professional installations, technology demonstrations, and real-world testing 
-        of our premium paint protection films. Learn from certified installers across Europe.
-      </p>
-      
-      <!-- Category Filter -->
-      <div class="flex flex-wrap justify-center gap-3 mb-8">
-        {categories.map(category => (
-          <button 
-            onclick={`filterVideos('${category.toLowerCase()}')`}
-            class={`category-filter px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-              category === 'All' 
-                ? 'bg-kppf-green text-kppf-gray' 
-                : 'bg-kppf-gray-700 text-kppf-gray-300 hover:bg-gray-600'
-            }`}
-            data-category={category.toLowerCase()}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Videos Grid -->
-  <section class="py-20 bg-kppf-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div id="videos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {videos.map(video => (
-          <div 
-            class="video-card bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl overflow-hidden shadow-xl hover:shadow-kppf-green/20 transition-all transform hover:scale-105 cursor-pointer"
-            data-category={video.category.toLowerCase()}
-            onclick={`playVideo(${video.id})`}
-          >
-            <!-- Video Thumbnail -->
-            <div class="relative">
-              <div class={`h-48 bg-gradient-to-br ${video.thumbnail} relative`}>
-                <!-- Play Button Overlay -->
-                <div class="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/20 transition-colors">
-                  <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-colors">
-                    <svg class="w-6 h-6 text-gray-900 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                  </div>
-                </div>
-                
-                <!-- Duration Badge -->
-                <div class="absolute bottom-2 right-2 bg-black/70 text-kppf-gray px-2 py-1 rounded text-xs font-medium">
-                  {video.duration}
-                </div>
-                
-                <!-- Category Badge -->
-                <div class="absolute top-2 left-2 bg-kppf-green text-kppf-gray px-2 py-1 rounded-full text-xs font-medium">
-                  {video.category}
-                </div>
-              </div>
-            </div>
-            
-            <!-- Video Info -->
-            <div class="p-4">
-              <h3 class="text-lg font-semibold text-kppf-gray mb-2 line-clamp-2">
-                {video.title}
-              </h3>
-              <p class="text-kppf-gray-400 text-sm line-clamp-3">
-                {video.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- No Results Message -->
-      <div id="no-results" class="hidden text-center py-20">
-        <div class="text-kppf-gray-400">
-          <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-          </svg>
-          <h3 class="text-xl font-semibold text-kppf-gray mb-2">No videos found</h3>
-          <p class="text-kppf-gray-400">Try selecting a different category or view all videos.</p>
-        </div>
-      </div>
-      
-    </div>
-  </section>
-
-  <!-- Featured Content -->
   <section class="py-20 bg-kppf-black">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-kppf-gray mb-4">Learn More About KPPF</h2>
-        <p class="text-kppf-gray-400 text-lg max-w-2xl mx-auto">
-          Discover the technology behind our premium paint protection films
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold font-head mb-6">
+          KPPF <span class="text-kppf-green">Videos</span>
+        </h1>
+        <p class="text-xl text-kppf-gray-300 max-w-3xl mx-auto mb-10">
+          Real installations, real studios, real results. Watch how professionals work with KPPF films.
         </p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gradient-to-br from-gray-800 to-gray-700 p-8 rounded-xl border border-kppf-gray-600">
-          <div class="w-12 h-12 bg-kppf-green rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-kppf-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-kppf-gray mb-4">Self-Healing Technology</h3>
-          <p class="text-kppf-gray-400">
-            Our advanced polyurethane formulation allows minor scratches and swirl marks 
-            to disappear with simple heat activation or natural sunlight.
-          </p>
-        </div>
         
-        <div class="bg-gradient-to-br from-gray-800 to-gray-700 p-8 rounded-xl border border-kppf-gray-600">
-          <div class="w-12 h-12 bg-kppf-green rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-kppf-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-kppf-gray mb-4">Professional Installation</h3>
-          <p class="text-kppf-gray-400">
-            Our certified installer network ensures proper application techniques 
-            for maximum performance and longevity of your paint protection film.
-          </p>
-        </div>
-        
-        <div class="bg-gradient-to-br from-gray-800 to-gray-700 p-8 rounded-xl border border-kppf-gray-600">
-          <div class="w-12 h-12 bg-kppf-green rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-kppf-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-kppf-gray mb-4">7-Year Warranty</h3>
-          <p class="text-kppf-gray-400">
-            Comprehensive warranty coverage backed by extensive testing in European 
-            climate conditions ensures your investment is protected.
-          </p>
+        <!-- Category Filter -->
+        <div class="flex flex-wrap justify-center gap-3">
+          {categories.map(cat => (
+            <button 
+              class={`cat-btn px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                cat === 'All' 
+                  ? 'bg-kppf-green text-kppf-black' 
+                  : 'bg-kppf-gray-800 border border-kppf-gray-700/50 text-kppf-gray-300 hover:border-kppf-green/30 hover:text-kppf-green'
+              }`}
+              data-cat={cat.toLowerCase()}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
       </div>
-      
-      <div class="text-center mt-12">
-        <a href="/contact" class="bg-kppf-green hover:bg-kppf-green-500 text-kppf-gray px-8 py-3 rounded-lg font-semibold transition-colors">
-          Find Certified Installer
-        </a>
+
+      <!-- Videos Grid -->
+      <div id="vgrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {videos.map((v, i) => (
+          <div class="video-item bg-kppf-gray-800 border border-kppf-gray-700/50 rounded-2xl overflow-hidden hover:border-kppf-green/30 transition-all group" data-cat={v.category.toLowerCase()}>
+            <!-- Thumbnail -->
+            <div class="relative h-52 bg-kppf-gray-700 overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-kppf-green/10 to-kppf-black/40 flex items-center justify-center">
+                <div class="w-16 h-16 bg-kppf-green/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-kppf-green/20">
+                  <svg class="w-7 h-7 text-kppf-black ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+              <div class="absolute bottom-3 right-3 bg-kppf-black/70 text-kppf-gray px-2.5 py-1 rounded-lg text-xs font-medium backdrop-blur-sm">{v.duration}</div>
+              <div class="absolute top-3 left-3 bg-kppf-green text-kppf-black text-xs font-bold px-3 py-1 rounded-full">{v.category}</div>
+            </div>
+            
+            <!-- Info -->
+            <div class="p-5">
+              <h3 class="text-lg font-semibold text-kppf-gray mb-2 group-hover:text-kppf-green transition-colors line-clamp-2">{v.title}</h3>
+              <p class="text-kppf-gray-400 text-sm leading-relaxed line-clamp-3">{v.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Coming Soon Note -->
+      <div class="mt-16 text-center">
+        <div class="inline-block bg-kppf-gray-800 border border-kppf-gray-700/50 rounded-2xl px-8 py-6">
+          <p class="text-kppf-gray-300 mb-2">🎬 Video embeds coming soon — full library in production</p>
+          <p class="text-kppf-gray-500 text-sm">Want early access? <a href="/contact" class="text-kppf-green hover:underline">Contact us</a></p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Video Modal (Placeholder) -->
-  <div id="video-modal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-kppf-gray-800 rounded-xl max-w-4xl w-full max-h-full overflow-auto">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-4">
-          <h3 id="modal-title" class="text-xl font-bold text-kppf-gray"></h3>
-          <button onclick="closeVideoModal()" class="text-kppf-gray-400 hover:text-kppf-gray">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-        <div class="bg-kppf-gray-700 rounded-lg p-8 text-center">
-          <svg class="w-16 h-16 text-kppf-gray-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-          </svg>
-          <p class="text-kppf-gray-400">Video player will be integrated here</p>
-          <p class="text-kppf-gray-500 text-sm mt-2">Contact us for access to our complete video library</p>
-        </div>
+  <!-- CTA -->
+  <section class="py-16 bg-kppf-green">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold font-head text-kppf-black mb-4">Want to See KPPF on Your Car?</h2>
+      <p class="text-kppf-black/70 text-lg mb-8">Find a certified installer near you or become a KPPF partner.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="bg-kppf-black hover:bg-kppf-black-500 text-kppf-green font-semibold py-3 px-8 rounded-xl transition-all">Contact Us</a>
+        <a href="/products" class="bg-kppf-black/10 hover:bg-kppf-black/20 text-kppf-black font-semibold py-3 px-8 rounded-xl transition-all">View Products</a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <script is:inline define:vars={{ videosJson: JSON.stringify(videos) }}>
-    const videos = JSON.parse(videosJson);
-    
-    function filterVideos(category) {
-      const videoCards = document.querySelectorAll('.video-card');
-      const noResults = document.getElementById('no-results');
-      const categoryButtons = document.querySelectorAll('.category-filter');
-      let visibleCount = 0;
-      
-      // Update button states
-      categoryButtons.forEach(button => {
-        if (button.dataset.category === category) {
-          button.classList.remove('bg-kppf-gray-700', 'text-kppf-gray-300');
-          button.classList.add('bg-kppf-green', 'text-kppf-gray');
-        } else {
-          button.classList.remove('bg-kppf-green', 'text-kppf-gray');
-          button.classList.add('bg-kppf-gray-700', 'text-kppf-gray-300');
-        }
+  <script is:inline>
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.cat-btn').forEach(b => {
+          b.classList.remove('bg-kppf-green', 'text-kppf-black');
+          b.classList.add('bg-kppf-gray-800', 'text-kppf-gray-300');
+        });
+        btn.classList.remove('bg-kppf-gray-800', 'text-kppf-gray-300');
+        btn.classList.add('bg-kppf-green', 'text-kppf-black');
+        document.querySelectorAll('.video-item').forEach(v => {
+          v.style.display = (cat === 'all' || v.dataset.cat === cat) ? '' : 'none';
+        });
       });
-      
-      // Filter videos
-      videoCards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.classList.remove('hidden');
-          visibleCount++;
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-      
-      // Show/hide no results message
-      if (visibleCount === 0) {
-        noResults.classList.remove('hidden');
-      } else {
-        noResults.classList.add('hidden');
-      }
-    }
-    
-    function playVideo(videoId) {
-      const video = videos.find(v => v.id === videoId);
-      if (video) {
-        document.getElementById('modal-title').textContent = video.title;
-        document.getElementById('video-modal').classList.remove('hidden');
-        document.body.classList.add('overflow-hidden');
-      }
-    }
-    
-    function closeVideoModal() {
-      document.getElementById('video-modal').classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
-    }
-    
-    // Close modal on escape key
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        closeVideoModal();
-      }
-    });
-    
-    // Close modal on background click
-    document.getElementById('video-modal').addEventListener('click', function(event) {
-      if (event.target === this) {
-        closeVideoModal();
-      }
     });
   </script>
 
   <style>
-    .line-clamp-2 {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    
-    .line-clamp-3 {
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
   </style>
-
 </BaseLayout>
