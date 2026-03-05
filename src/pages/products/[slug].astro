@@ -1,0 +1,380 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Product data
+const products = {
+  'kppf-24': {
+    id: 'kppf-24',
+    name: 'KPPF #24',
+    price: 890,
+    image: '/images/kppf-24.jpg',
+    gradient: 'from-amber-400 to-amber-600',
+    category: 'Premium Line',
+    thickness: '190μm',
+    size: '15m × 1.52m',
+    description: 'Our flagship premium paint protection film featuring advanced self-healing technology that works without external heat. KPPF #24 offers exceptional clarity, deep gloss enhancement, and superior chemical resistance, making it the perfect choice for luxury and high-performance vehicles.',
+    features: [
+      'Self-healing technology without heat activation',
+      'Anti-yellowing formula for long-term clarity',
+      'Deep gloss finish enhances paint depth',
+      'Superior chemical resistance',
+      'Easy repositioning during installation',
+      'Air-release technology prevents bubbles',
+      '7-year manufacturer warranty',
+      'Removable without residue'
+    ],
+    specs: {
+      'Thickness': '190 microns',
+      'Roll Size': '15m × 1.52m (22.8 m²)',
+      'Adhesive': 'Clear acrylic',
+      'Elongation': '500%+',
+      'Tensile Strength': '4,200 psi',
+      'Temperature Range': '-40°C to +80°C',
+      'UV Transmission': '95%+',
+      'Warranty': '7 years'
+    },
+    applications: [
+      'Luxury vehicles',
+      'Sports cars',
+      'High-end automotive detailing',
+      'Show cars',
+      'Premium fleet protection'
+    ]
+  },
+  'kppf-25': {
+    id: 'kppf-25',
+    name: 'KPPF #25',
+    price: 990,
+    image: '/images/kppf-25.jpg',
+    gradient: 'from-blue-400 to-blue-600',
+    category: 'Enhanced Protection',
+    thickness: '200μm',
+    size: '15m × 1.52m',
+    description: 'Enhanced thickness paint protection film specifically engineered for dark vehicles and high-impact areas. KPPF #25 provides maximum protection against stone chips, scratches, and environmental damage while maintaining exceptional clarity.',
+    features: [
+      'Enhanced 200μm thickness for maximum protection',
+      'Optimized for dark vehicle finishes',
+      'Superior stone chip resistance',
+      'Enhanced self-healing properties',
+      'Exceptional clarity and gloss',
+      'Chemical and stain resistance',
+      'Professional-grade adhesive system',
+      'Easy maintenance and cleaning'
+    ],
+    specs: {
+      'Thickness': '200 microns',
+      'Roll Size': '15m × 1.52m (22.8 m²)',
+      'Adhesive': 'Enhanced acrylic',
+      'Elongation': '600%+',
+      'Tensile Strength': '4,800 psi',
+      'Temperature Range': '-40°C to +85°C',
+      'UV Transmission': '96%+',
+      'Warranty': '7 years'
+    },
+    applications: [
+      'Dark colored vehicles',
+      'High-impact areas (front bumper, hood)',
+      'Track-driven vehicles',
+      'Premium SUVs and sedans',
+      'Commercial fleet protection'
+    ]
+  },
+  'kppf-10': {
+    id: 'kppf-10',
+    name: 'KPPF #10',
+    price: 690,
+    image: '/images/kppf-10.jpg',
+    gradient: 'from-green-400 to-green-600',
+    category: 'Economy Line',
+    thickness: '160μm',
+    size: '15m × 1.52m',
+    description: 'Value-oriented paint protection film that delivers essential protection without compromising on quality. KPPF #10 offers excellent basic protection for everyday vehicles while maintaining professional installation standards.',
+    features: [
+      'Reliable 160μm protection thickness',
+      'Good basic scratch resistance',
+      'Clear finish maintains paint appearance',
+      'Affordable professional protection',
+      'Easy installation properties',
+      'Removable without damage',
+      '5-year warranty coverage',
+      'Suitable for various vehicle types'
+    ],
+    specs: {
+      'Thickness': '160 microns',
+      'Roll Size': '15m × 1.52m (22.8 m²)',
+      'Adhesive': 'Standard acrylic',
+      'Elongation': '400%+',
+      'Tensile Strength': '3,500 psi',
+      'Temperature Range': '-35°C to +75°C',
+      'UV Transmission': '94%+',
+      'Warranty': '5 years'
+    },
+    applications: [
+      'Daily driver vehicles',
+      'Budget-conscious protection',
+      'Fleet applications',
+      'Entry-level detailing services',
+      'Partial coverage installations'
+    ]
+  }
+};
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'kppf-24' } },
+    { params: { slug: 'kppf-25' } },
+    { params: { slug: 'kppf-10' } }
+  ];
+}
+
+const { slug } = Astro.params;
+const product = products[slug];
+
+if (!product) {
+  return Astro.redirect('/products');
+}
+---
+
+<BaseLayout title={`${product.name} - KPPF.EU Premium Paint Protection Film`} description={product.description}>
+
+  <!-- Product Hero Section -->
+  <section class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Product Image -->
+        <div class="order-2 lg:order-1">
+          <div class={`h-96 rounded-xl bg-gradient-to-br ${product.gradient} shadow-2xl`}></div>
+        </div>
+        
+        <!-- Product Info -->
+        <div class="order-1 lg:order-2">
+          <div class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-semibold inline-block mb-4">
+            {product.category}
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{product.name}</h1>
+          <p class="text-xl text-gray-300 mb-6">{product.description}</p>
+          <div class="flex items-center mb-8">
+            <span class="text-3xl font-bold text-amber-400">€{product.price}</span>
+            <span class="text-gray-400 ml-2">per roll</span>
+          </div>
+          
+          <!-- Add to Cart -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div class="flex items-center gap-2">
+              <label for="quantity" class="text-gray-400">Quantity:</label>
+              <select id="quantity" class="bg-gray-700 text-white border border-gray-600 rounded px-3 py-2">
+                <option value="1">1 roll</option>
+                <option value="2">2 rolls</option>
+                <option value="3">3 rolls</option>
+                <option value="4">4 rolls</option>
+                <option value="5">5 rolls</option>
+              </select>
+            </div>
+            <button 
+              onclick={`addToCartWithQuantity('${product.id}', '${product.name}', ${product.price}, '${product.image}')`}
+              class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex-1 sm:flex-none"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details -->
+  <section class="py-20 bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Tabs -->
+      <div class="border-b border-gray-700 mb-12">
+        <nav class="flex space-x-8">
+          <button onclick="showTab('features')" id="tab-features" class="tab-button active py-4 px-1 border-b-2 font-medium text-sm">
+            Features
+          </button>
+          <button onclick="showTab('specs')" id="tab-specs" class="tab-button py-4 px-1 border-b-2 font-medium text-sm">
+            Specifications
+          </button>
+          <button onclick="showTab('applications')" id="tab-applications" class="tab-button py-4 px-1 border-b-2 font-medium text-sm">
+            Applications
+          </button>
+        </nav>
+      </div>
+
+      <!-- Tab Content -->
+      <!-- Features Tab -->
+      <div id="content-features" class="tab-content">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-6">Key Features</h3>
+            <div class="space-y-4">
+              {product.features.map(feature => (
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 mr-3 text-amber-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-300">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="bg-gray-700/50 p-8 rounded-xl">
+            <h4 class="text-xl font-bold text-white mb-4">Why Choose {product.name}?</h4>
+            <p class="text-gray-300 leading-relaxed">
+              {product.name} represents the perfect balance of performance, durability, and value. 
+              Engineered specifically for the European market, this film undergoes rigorous testing 
+              to ensure it performs in all weather conditions, from the harsh Nordic winters to 
+              the intense Mediterranean summers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specifications Tab -->
+      <div id="content-specs" class="tab-content hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-6">Technical Specifications</h3>
+            <div class="bg-gray-700/50 rounded-xl overflow-hidden">
+              <table class="w-full">
+                {Object.entries(product.specs).map(([key, value]) => (
+                  <tr class="border-b border-gray-600 last:border-b-0">
+                    <td class="px-6 py-4 text-gray-400 font-medium">{key}</td>
+                    <td class="px-6 py-4 text-white">{value}</td>
+                  </tr>
+                ))}
+              </table>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold text-white mb-4">Installation Notes</h4>
+            <div class="space-y-4 text-gray-300">
+              <p>• Surface temperature: 18-25°C for optimal installation</p>
+              <p>• Humidity: 40-60% relative humidity recommended</p>
+              <p>• Repositioning time: Up to 15 minutes after initial placement</p>
+              <p>• Curing time: 24-48 hours for full adhesion</p>
+              <p>• Storage: Keep in original packaging, store horizontally</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Applications Tab -->
+      <div id="content-applications" class="tab-content hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-6">Ideal Applications</h3>
+            <div class="space-y-4">
+              {product.applications.map(application => (
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 mr-3 text-amber-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                  <span class="text-gray-300">{application}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="bg-gray-700/50 p-6 rounded-xl">
+              <h4 class="text-lg font-bold text-white mb-3">Coverage Area</h4>
+              <p class="text-gray-300">
+                One roll covers approximately 22.8 m², sufficient for front bumper, 
+                hood, fenders, and mirror caps on most vehicles.
+              </p>
+            </div>
+            <div class="bg-gray-700/50 p-6 rounded-xl">
+              <h4 class="text-lg font-bold text-white mb-3">Professional Installation</h4>
+              <p class="text-gray-300">
+                We recommend professional installation for best results. Contact us for 
+                certified installer recommendations in your area.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="py-20 bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h3 class="text-3xl font-bold text-white text-center mb-12">Other Products</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {Object.values(products).filter(p => p.id !== product.id).map(otherProduct => (
+          <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl overflow-hidden shadow-xl hover:shadow-amber-500/20 transition-all">
+            <div class={`h-48 bg-gradient-to-br ${otherProduct.gradient}`}></div>
+            <div class="p-6">
+              <h4 class="text-xl font-bold text-white mb-2">{otherProduct.name}</h4>
+              <p class="text-amber-400 font-semibold mb-4">€{otherProduct.price} / roll</p>
+              <p class="text-gray-400 mb-4">{otherProduct.thickness} • {otherProduct.size}</p>
+              <a href={`/products/${otherProduct.id}`} class="block bg-amber-600 hover:bg-amber-700 text-white text-center py-2 rounded-lg font-semibold transition-colors">
+                View Details
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Tab functionality
+    function showTab(tabName) {
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+      
+      // Remove active class from all tabs
+      document.querySelectorAll('.tab-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      
+      // Show selected tab content
+      document.getElementById(`content-${tabName}`).classList.remove('hidden');
+      
+      // Add active class to selected tab
+      document.getElementById(`tab-${tabName}`).classList.add('active');
+    }
+
+    // Add to cart with quantity
+    function addToCartWithQuantity(id, name, price, image) {
+      const quantity = parseInt(document.getElementById('quantity').value);
+      const cart = JSON.parse(localStorage.getItem('kppf-cart') || '[]');
+      const existingItem = cart.find(item => item.id === id);
+      
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        cart.push({ id, name, price, image, quantity });
+      }
+      
+      localStorage.setItem('kppf-cart', JSON.stringify(cart));
+      window.dispatchEvent(new Event('cart-updated'));
+      
+      // Show feedback
+      const button = event.target;
+      const originalText = button.textContent;
+      button.textContent = 'Added to Cart!';
+      button.classList.add('bg-green-600');
+      
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.classList.remove('bg-green-600');
+      }, 2000);
+    }
+  </script>
+
+  <style>
+    @reference "tailwindcss";
+    .tab-button {
+      @apply text-gray-400 border-transparent hover:text-amber-400 hover:border-amber-400;
+    }
+    .tab-button.active {
+      @apply text-amber-400 border-amber-400;
+    }
+  </style>
+
+</BaseLayout>

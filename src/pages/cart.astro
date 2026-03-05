@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CartPage from "../components/CartPage.tsx";
+---
+
+<BaseLayout title="Cart - KPPF.EU" description="Your shopping cart - KPPF premium paint protection film.">
+  <section class="py-16 bg-gray-900 min-h-[60vh]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold mb-10 text-center">Shopping <span class="text-amber-400">Cart</span></h1>
+      <CartPage client:load />
+    </div>
+  </section>
+</BaseLayout>

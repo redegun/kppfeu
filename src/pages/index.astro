@@ -1,17 +1,214 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="KPPF.EU - Premium Paint Protection Film for Europe" description="Premium paint protection film for European market. Self-healing technology, chemical resistance, deep gloss finish, and 7-year durability guarantee.">
+  
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20 lg:py-32">
+    <div class="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-amber-600/5"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          Premium Paint Protection Film
+          <span class="text-amber-400 block">for European Market</span>
+        </h1>
+        <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+          Professional-grade polyurethane film with self-healing technology. 
+          Protect your vehicle's paint with our premium KPPF solutions, 
+          designed for European climate and roads.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/products" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+            View Products
+          </a>
+          <a href="/contact" class="border-2 border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+            Get Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-20 bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Why Choose KPPF?</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+          Advanced polyurethane technology engineered for maximum protection and longevity
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Self-Healing Technology -->
+        <div class="bg-gray-700/50 backdrop-blur p-8 rounded-xl border border-gray-600 hover:border-amber-400/50 transition-all">
+          <div class="w-12 h-12 bg-amber-600 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-4">Self-Healing Technology</h3>
+          <p class="text-gray-400">Minor scratches and swirl marks disappear with heat activation. Maintains perfect finish without professional intervention.</p>
+        </div>
+
+        <!-- Chemical Resistance -->
+        <div class="bg-gray-700/50 backdrop-blur p-8 rounded-xl border border-gray-600 hover:border-amber-400/50 transition-all">
+          <div class="w-12 h-12 bg-amber-600 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-4">Chemical Resistance</h3>
+          <p class="text-gray-400">Superior protection against road salt, acid rain, bird droppings, and harsh European winter conditions.</p>
+        </div>
+
+        <!-- Deep Gloss Finish -->
+        <div class="bg-gray-700/50 backdrop-blur p-8 rounded-xl border border-gray-600 hover:border-amber-400/50 transition-all">
+          <div class="w-12 h-12 bg-amber-600 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-4">Deep Gloss Finish</h3>
+          <p class="text-gray-400">Crystal-clear transparency enhances paint depth and color vibrancy while maintaining factory finish appearance.</p>
+        </div>
+
+        <!-- 7-Year Durability -->
+        <div class="bg-gray-700/50 backdrop-blur p-8 rounded-xl border border-gray-600 hover:border-amber-400/50 transition-all">
+          <div class="w-12 h-12 bg-amber-600 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-4">7-Year Durability</h3>
+          <p class="text-gray-400">Long-term protection backed by comprehensive warranty. Proven performance in European climate conditions.</p>
+        </div>
+
+        <!-- Easy Installation -->
+        <div class="bg-gray-700/50 backdrop-blur p-8 rounded-xl border border-gray-600 hover:border-amber-400/50 transition-all">
+          <div class="w-12 h-12 bg-amber-600 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-4">Professional Installation</h3>
+          <p class="text-gray-400">Designed for professional application with optimal repositioning time and air-release technology.</p>
+        </div>
+
+        <!-- Anti-Yellowing -->
+        <div class="bg-gray-700/50 backdrop-blur p-8 rounded-xl border border-gray-600 hover:border-amber-400/50 transition-all">
+          <div class="w-12 h-12 bg-amber-600 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-4">Anti-Yellowing Formula</h3>
+          <p class="text-gray-400">Advanced UV inhibitors prevent discoloration and maintain crystal-clear appearance throughout the film's lifetime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <section class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Product Range</h2>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+          Professional-grade films engineered for different protection levels and applications
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- KPPF #24 -->
+        <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl overflow-hidden shadow-2xl hover:shadow-amber-500/20 transition-all transform hover:scale-105">
+          <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600"></div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">KPPF #24</h3>
+            <p class="text-amber-400 font-semibold mb-4">€890 / roll</p>
+            <ul class="text-gray-400 space-y-2 mb-6">
+              <li>• 190μm thickness</li>
+              <li>• 15m × 1.52m roll</li>
+              <li>• Self-healing without heat</li>
+              <li>• Anti-yellowing technology</li>
+              <li>• Deep gloss finish</li>
+            </ul>
+            <a href="/products/kppf-24" class="block bg-amber-600 hover:bg-amber-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
+              View Details
+            </a>
+          </div>
+        </div>
+
+        <!-- KPPF #25 -->
+        <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl overflow-hidden shadow-2xl hover:shadow-amber-500/20 transition-all transform hover:scale-105">
+          <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600"></div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">KPPF #25</h3>
+            <p class="text-amber-400 font-semibold mb-4">€990 / roll</p>
+            <ul class="text-gray-400 space-y-2 mb-6">
+              <li>• 200μm thickness</li>
+              <li>• 15m × 1.52m roll</li>
+              <li>• Enhanced protection</li>
+              <li>• Ideal for dark vehicles</li>
+              <li>• Premium performance</li>
+            </ul>
+            <a href="/products/kppf-25" class="block bg-amber-600 hover:bg-amber-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
+              View Details
+            </a>
+          </div>
+        </div>
+
+        <!-- KPPF #10 -->
+        <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl overflow-hidden shadow-2xl hover:shadow-amber-500/20 transition-all transform hover:scale-105">
+          <div class="h-48 bg-gradient-to-br from-green-400 to-green-600"></div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">KPPF #10</h3>
+            <p class="text-amber-400 font-semibold mb-4">€690 / roll</p>
+            <ul class="text-gray-400 space-y-2 mb-6">
+              <li>• 160μm thickness</li>
+              <li>• 15m × 1.52m roll</li>
+              <li>• Economy line</li>
+              <li>• Good basic protection</li>
+              <li>• Value for money</li>
+            </ul>
+            <a href="/products/kppf-10" class="block bg-amber-600 hover:bg-amber-700 text-white text-center py-3 rounded-lg font-semibold transition-colors">
+              View Details
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="/products" class="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+          View All Products
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-20 bg-gradient-to-r from-amber-600 to-amber-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Ready to Protect Your Vehicle?
+      </h2>
+      <p class="text-amber-100 text-lg mb-8 max-w-2xl mx-auto">
+        Join thousands of satisfied customers across Europe who trust KPPF for premium paint protection.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="bg-white text-amber-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+          Get Free Quote
+        </a>
+        <a href="/videos" class="border-2 border-white text-white hover:bg-white hover:text-amber-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+          Watch Installation Videos
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
