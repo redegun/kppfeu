@@ -7,7 +7,7 @@ const products = {
     id: 'kppf-24',
     name: 'KPPF #24',
     price: 890,
-    image: '/images/kppf-24.jpg',
+    image: '/images/film-packing-round.png',
     gradient: 'from-amber-400 to-amber-600',
     category: 'Premium Line',
     thickness: '190μm',
@@ -45,7 +45,7 @@ const products = {
     id: 'kppf-25',
     name: 'KPPF #25',
     price: 990,
-    image: '/images/kppf-25.jpg',
+    image: '/images/film-packing-round.png',
     gradient: 'from-blue-400 to-blue-600',
     category: 'Enhanced Protection',
     thickness: '200μm',
@@ -83,7 +83,7 @@ const products = {
     id: 'kppf-10',
     name: 'KPPF #10',
     price: 690,
-    image: '/images/kppf-10.jpg',
+    image: '/images/film-packing-round.png',
     gradient: 'from-green-400 to-green-600',
     category: 'Economy Line',
     thickness: '160μm',
@@ -143,7 +143,9 @@ if (!product) {
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <!-- Product Image -->
         <div class="order-2 lg:order-1">
-          <div class={`h-96 rounded-xl bg-gradient-to-br ${product.gradient} shadow-2xl`}></div>
+          <div class="h-96 rounded-xl bg-kppf-gray-800 shadow-2xl flex items-center justify-center">
+            <img src={product.image} alt={product.name} class="h-80 w-auto object-contain" />
+          </div>
         </div>
         
         <!-- Product Info -->
@@ -304,7 +306,9 @@ if (!product) {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {Object.values(products).filter(p => p.id !== product.id).map(otherProduct => (
           <div class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl overflow-hidden shadow-xl hover:shadow-kppf-green/20 transition-all">
-            <div class={`h-48 bg-gradient-to-br ${otherProduct.gradient}`}></div>
+            <div class="h-48 bg-kppf-gray-700 flex items-center justify-center">
+              <img src={otherProduct.image} alt={otherProduct.name} class="h-36 w-auto object-contain" />
+            </div>
             <div class="p-6">
               <h4 class="text-xl font-bold text-kppf-gray mb-2">{otherProduct.name}</h4>
               <p class="text-kppf-green font-semibold mb-4">€{otherProduct.price} / roll</p>

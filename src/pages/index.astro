@@ -11,9 +11,9 @@ const features = [
 ];
 
 const products = [
-  { slug: "kppf-24", name: "KPPF #24", tag: "Premium", thickness: "190μm", price: "€890", desc: "Universal flagship film with self-healing and deep gloss enhancement" },
-  { slug: "kppf-25", name: "KPPF #25", tag: "Enhanced", thickness: "200μm", price: "€990", desc: "Maximum protection for dark vehicles and high-impact areas" },
-  { slug: "kppf-10", name: "KPPF #10", tag: "Value", thickness: "160μm", price: "€690", desc: "Professional protection at an accessible price point" },
+  { slug: "kppf-24", name: "KPPF #24", tag: "Premium", thickness: "190μm", price: "€890", desc: "Universal flagship film with self-healing and deep gloss enhancement", img: "/images/film-packing-round.png" },
+  { slug: "kppf-25", name: "KPPF #25", tag: "Enhanced", thickness: "200μm", price: "€990", desc: "Maximum protection for dark vehicles and high-impact areas", img: "/images/film-packing-round.png" },
+  { slug: "kppf-10", name: "KPPF #10", tag: "Value", thickness: "160μm", price: "€690", desc: "Professional protection at an accessible price point", img: "/images/film-packing-round.png" },
 ];
 ---
 
@@ -108,9 +108,9 @@ const products = [
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {products.map((p) => (
           <div class="bg-kppf-gray-800 rounded-2xl overflow-hidden border border-kppf-gray-700/50 hover:border-kppf-green/30 transition-all group">
-            <div class="h-56 bg-gradient-to-br from-kppf-gray-700 to-kppf-gray-800 flex items-center justify-center relative">
-              <span class="absolute top-4 left-4 bg-kppf-green text-kppf-black text-xs font-bold px-3 py-1 rounded-full">{p.tag}</span>
-              <span class="text-kppf-gray-500 text-5xl font-head opacity-20 group-hover:opacity-40 transition-opacity">{p.name}</span>
+            <div class="h-56 bg-kppf-gray-700 flex items-center justify-center relative overflow-hidden">
+              <span class="absolute top-4 left-4 bg-kppf-green text-kppf-black text-xs font-bold px-3 py-1 rounded-full z-10">{p.tag}</span>
+              <img src={p.img} alt={p.name} class="h-44 w-auto object-contain group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div class="p-6">
               <div class="flex justify-between items-start mb-3">
