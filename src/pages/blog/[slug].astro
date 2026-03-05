@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { posts } from '../../data/blog';
+
+export async function getStaticPaths() {
+  return posts.map(p => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = posts.find(p => p.slug === slug)!;
+const relatedPosts = posts.filter(p => p.slug !== slug).slice(0, 2);
+---
+
+<BaseLayout title={`${post.title} | KPPF.EU Blog`} description={post.excerpt}>
+  <!-- Hero -->
+  <section class="relative h-64 md:h-80 overflow-hidden">
+    <img src={post.img} alt={post.title} class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-kppf-black via-kppf-black/60 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 p-8">
+      <div class="max-w-7xl mx-auto">
+        <a href="/blog" class="text-kppf-green text-sm hover:underline mb-3 inline-block">← Back to Blog</a>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="bg-kppf-green/20 text-kppf-green text-xs font-semibold px-3 py-1 rounded-full">{post.category}</span>
+          <span class="text-kppf-gray-400 text-sm">{post.readTime} read</span>
+        </div>
+        <h1 class="text-2xl md:text-4xl font-bold font-head leading-tight max-w-3xl">{post.title}</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article -->
+  <section class="py-12 bg-kppf-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[1fr_280px] gap-12">
+        <!-- Main Content -->
+        <article class="min-w-0">
+          <!-- Meta -->
+          <div class="flex items-center gap-6 mb-10 pb-6 border-b border-kppf-gray-700/30">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-kppf-green/20 rounded-full flex items-center justify-center text-kppf-green font-bold text-sm">
+                {post.author.split(' ').map(w => w[0]).join('')}
+              </div>
+              <div>
+                <div class="text-sm font-medium">{post.author}</div>
+                <div class="text-kppf-gray-500 text-xs">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 text-kppf-gray-500 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+              {post.views.toLocaleString()} views
+            </div>
+          </div>
+
+          <!-- Intro -->
+          <p class="text-kppf-gray-300 text-lg leading-relaxed mb-10">{post.excerpt}</p>
+
+          <!-- Sections -->
+          {post.sections.map((section) => (
+            <div id={section.id} class="mb-10 scroll-mt-24">
+              <h2 class="text-xl md:text-2xl font-bold font-head mb-4 text-kppf-gray">{section.title}</h2>
+              <p class="text-kppf-gray-300 leading-relaxed">{section.content}</p>
+            </div>
+          ))}
+
+          <!-- CTA -->
+          <div class="bg-kppf-green/10 border border-kppf-green/30 rounded-2xl p-8 mt-12 text-center">
+            <h3 class="text-xl font-bold font-head mb-3">Ready to Get Started?</h3>
+            <p class="text-kppf-gray-300 mb-6">Browse our product range or get in touch for expert advice.</p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+              <a href="/products" class="bg-kppf-green hover:bg-kppf-green-500 text-kppf-black font-semibold px-6 py-3 rounded-xl transition-all">View Products</a>
+              <a href="/contact" class="border border-kppf-gray-600 hover:border-kppf-green text-kppf-gray hover:text-kppf-green font-medium px-6 py-3 rounded-xl transition-all">Contact Us</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="hidden lg:block">
+          <div class="sticky top-24 space-y-8">
+            <!-- Table of Contents -->
+            <div class="bg-kppf-gray-800 rounded-2xl p-6 border border-kppf-gray-700/50">
+              <h3 class="text-sm font-semibold text-kppf-gray-200 uppercase tracking-wider mb-4">Table of Contents</h3>
+              <nav class="space-y-2">
+                {post.sections.map((section) => (
+                  <a href={`#${section.id}`} class="toc-link block text-sm text-kppf-gray-400 hover:text-kppf-green transition-colors py-1 border-l-2 border-kppf-gray-700 pl-3 hover:border-kppf-green">
+                    {section.title}
+                  </a>
+                ))}
+              </nav>
+            </div>
+
+            <!-- Related Posts -->
+            <div class="bg-kppf-gray-800 rounded-2xl p-6 border border-kppf-gray-700/50">
+              <h3 class="text-sm font-semibold text-kppf-gray-200 uppercase tracking-wider mb-4">Related Articles</h3>
+              <div class="space-y-4">
+                {relatedPosts.map((rp) => (
+                  <a href={`/blog/${rp.slug}`} class="block group">
+                    <div class="h-24 rounded-lg overflow-hidden mb-2">
+                      <img src={rp.img} alt={rp.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <h4 class="text-sm font-medium group-hover:text-kppf-green transition-colors leading-tight">{rp.title}</h4>
+                    <span class="text-kppf-gray-500 text-xs">{rp.readTime} read</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- More Articles -->
+  <section class="py-16 bg-kppf-gray-800 border-t border-kppf-gray-700/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold font-head text-center mb-8">More <span class="text-kppf-green">Articles</span></h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {relatedPosts.map((rp) => (
+          <a href={`/blog/${rp.slug}`} class="flex gap-4 bg-kppf-black rounded-xl p-4 border border-kppf-gray-700/50 hover:border-kppf-green/30 transition-all group">
+            <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+              <img src={rp.img} alt={rp.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="min-w-0">
+              <span class="text-kppf-green text-xs font-medium">{rp.category}</span>
+              <h3 class="font-semibold text-sm mt-1 group-hover:text-kppf-green transition-colors leading-tight">{rp.title}</h3>
+              <div class="flex items-center gap-3 mt-2 text-xs text-kppf-gray-500">
+                <span>{rp.readTime}</span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                  {rp.views.toLocaleString()}
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Highlight active TOC link on scroll
+    const sections = document.querySelectorAll('[id]');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => {
+            link.classList.remove('text-kppf-green', 'border-kppf-green');
+            link.classList.add('text-kppf-gray-400', 'border-kppf-gray-700');
+          });
+          const activeLink = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+          if (activeLink) {
+            activeLink.classList.remove('text-kppf-gray-400', 'border-kppf-gray-700');
+            activeLink.classList.add('text-kppf-green', 'border-kppf-green');
+          }
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px' });
+    
+    sections.forEach(section => observer.observe(section));
+  </script>
+</BaseLayout>

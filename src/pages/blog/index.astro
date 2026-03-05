@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { posts, categories } from '../../data/blog';
+---
+
+<BaseLayout title="Blog - KPPF.EU" description="Expert articles about paint protection film: installation guides, business tips, technology insights, and product comparisons.">
+  <section class="py-20 bg-kppf-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold font-head mb-6">KPPF <span class="text-kppf-green">Blog</span></h1>
+        <p class="text-xl text-kppf-gray-300 max-w-2xl mx-auto">Expert insights on paint protection film: installation guides, business tips, and product technology.</p>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        {categories.map((cat) => (
+          <button
+            data-category={cat.toLowerCase()}
+            class="category-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-kppf-gray-800 text-kppf-gray-300 hover:text-kppf-green border border-kppf-gray-700/50 hover:border-kppf-green/30"
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Posts Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-grid">
+        {posts.map((post) => (
+          <a href={`/blog/${post.slug}`} class="post-card group block bg-kppf-gray-800 rounded-2xl overflow-hidden border border-kppf-gray-700/50 hover:border-kppf-green/30 transition-all" data-category={post.category.toLowerCase()}>
+            <div class="h-48 overflow-hidden">
+              <img src={post.img} alt={post.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="bg-kppf-green/10 text-kppf-green text-xs font-semibold px-3 py-1 rounded-full">{post.category}</span>
+                <span class="text-kppf-gray-500 text-xs">{post.readTime} read</span>
+              </div>
+              <h2 class="text-lg font-semibold mb-2 group-hover:text-kppf-green transition-colors leading-tight">{post.title}</h2>
+              <p class="text-kppf-gray-400 text-sm leading-relaxed mb-4">{post.excerpt}</p>
+              <div class="flex items-center justify-between text-xs text-kppf-gray-500">
+                <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                  {post.views.toLocaleString()}
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.category;
+        document.querySelectorAll('.category-btn').forEach(b => {
+          b.classList.remove('bg-kppf-green', 'text-kppf-black', 'border-kppf-green');
+          b.classList.add('bg-kppf-gray-800', 'text-kppf-gray-300', 'border-kppf-gray-700/50');
+        });
+        btn.classList.remove('bg-kppf-gray-800', 'text-kppf-gray-300', 'border-kppf-gray-700/50');
+        btn.classList.add('bg-kppf-green', 'text-kppf-black', 'border-kppf-green');
+        
+        document.querySelectorAll('.post-card').forEach(card => {
+          if (cat === 'all' || card.dataset.category === cat) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>
